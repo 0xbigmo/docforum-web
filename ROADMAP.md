@@ -23,6 +23,7 @@ real API" (no refresh-on-reload flow).
   for all three roles (facility users just don't self-register). 14 tests
   passing (`npm test`), including one that asserts facility is never
   offered at signup.
+- [ ] Restore session on reload via `POST /auth/refresh` (single-flight refresh, one retry on `401`, `RequireAuth` waits for boot refresh). Tracked as [issue #9](https://github.com/DocForum/docforum-web/issues/9) (Medium, 150 pts).
 - [ ] Not done: any integration test against a real `docforum-core`
   instance — none exists yet to test against.
 - [x] Deployed as a UI preview to GitHub Pages on every push to `main`
@@ -288,3 +289,8 @@ real API" (no refresh-on-reload flow).
   (fund/release/refund really moving testnet funds) are proven by
   `docforum-core`'s own live-testnet integration test, which this UI
   calls through unmodified endpoints.
+- 2026-09-26 — Opened [issue #9](https://github.com/DocForum/docforum-web/issues/9)
+  for the one remaining W1 gap (no refresh-on-reload), and fixed the
+  stale `auth-store.ts` comment that said `docforum-core` hadn't picked
+  a refresh-token transport (it's an httpOnly cookie). Linked issue #1
+  to its new backend counterpart, `docforum-core` issue #23.
