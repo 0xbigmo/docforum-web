@@ -25,7 +25,8 @@ real API" (no refresh-on-reload flow).
   offered at signup.
 - [ ] Restore session on reload via `POST /auth/refresh` (single-flight refresh, one retry on `401`, `RequireAuth` waits for boot refresh). Tracked as [issue #9](https://github.com/DocForum/docforum-web/issues/9) (Medium, 150 pts).
 - [ ] Not done: any integration test against a real `docforum-core`
-  instance — none exists yet to test against.
+  instance. Tracked as [issue #12](https://github.com/DocForum/docforum-web/issues/12) (High, 200 pts) — an end-to-end smoke test against a throwaway `docforum-core` backend.
+- [ ] ESLint + lint step in CI. Tracked as [issue #11](https://github.com/DocForum/docforum-web/issues/11) (Trivial, 100 pts).
 - [x] Deployed as a UI preview to GitHub Pages on every push to `main`
   (`.github/workflows/deploy-pages.yml`) — see `ARCHITECTURE_ESSENTIALS.md`
   "Deployment". Not a production deploy decision for the org; scoped to
@@ -67,6 +68,7 @@ real API" (no refresh-on-reload flow).
   transaction underneath. Admin accounts are seeded/invited, not
   self-serve (PRD OQ-2, same as facility) — this page is real once such
   a session exists, same caveat as the facility dashboard already had.
+- [ ] Link transaction hashes/escrows to the Stellar testnet explorer. Tracked as [issue #10](https://github.com/DocForum/docforum-web/issues/10) (Trivial, 100 pts).
 
 ## Changelog
 - 2026-09-09 — Roadmap created, carved out of docforum-core Phase 7 as part
@@ -294,3 +296,6 @@ real API" (no refresh-on-reload flow).
   stale `auth-store.ts` comment that said `docforum-core` hadn't picked
   a refresh-token transport (it's an httpOnly cookie). Linked issue #1
   to its new backend counterpart, `docforum-core` issue #23.
+- 2026-10-07 — Opened issues #10 (explorer links in the payments
+  console), #11 (ESLint in CI) and #12 (end-to-end smoke test against a
+  real `docforum-core`, the unchecked Phase W1 item).
