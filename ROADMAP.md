@@ -86,6 +86,12 @@ real API" (no refresh-on-reload flow).
   a session exists, same caveat as the facility dashboard already had.
 - [ ] Link transaction hashes/escrows to the Stellar testnet explorer. Tracked as [issue #10](https://github.com/DocForum/docforum-web/issues/10) (Trivial, 100 pts).
 
+## Phase W7 — Platform quality: reliability, accessibility, performance, testing
+- [x] Mock API for local development (MSW). Tracked as [issue #95](https://github.com/DocForum/docforum-web/issues/95) (High, 200 pts) — `npm run dev:mock` serves every endpoint the app uses through the normal service layer via `src/mocks/`: seeded obviously-fake fixtures, a dev-panel role switcher (patient/doctor/facility/admin), scenario toggles (empty states, forced errors), a latency slider, and a fixture reset. 26 handler tests drive the real `src/services/` layer against MSW; CI fails if mock code ever enters a production bundle (`npm run check:dist`). Documented in `CONTRIBUTING.md`.
+- [ ] Generate MSW handlers and fixtures from the backend OpenAPI spec. Tracked as [issue #96](https://github.com/DocForum/docforum-web/issues/96) (High, 200 pts) — **blocked**: depends on [docforum-core#112](https://github.com/DocForum/docforum-core/issues/112) (OpenAPI 3.1 spec generated from the Zod schemas), which is still open — there is no authoritative `openapi.json` to generate from yet. Do not fabricate one; see that issue.
+- [ ] Storybook component library with interaction and accessibility tests. Tracked as [issue #97](https://github.com/DocForum/docforum-web/issues/97) (High, 200 pts).
+- [ ] Performance budget: route-level code splitting, lazy GSAP, and Lighthouse CI. Tracked as [issue #99](https://github.com/DocForum/docforum-web/issues/99) (High, 200 pts).
+
 ## Changelog
 - 2026-09-09 — Roadmap created, carved out of docforum-core Phase 7 as part
   of the 3-repo org split.
